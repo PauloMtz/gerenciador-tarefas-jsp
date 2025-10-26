@@ -1,0 +1,41 @@
+.container {
+    min-height: 70vh;
+    padding-top: 20px;
+}
+.container h2 {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+.navbar {
+    border-bottom: 1px solid #ccc;
+    padding-left: 20px;
+    padding-right: 70px;
+}
+.navbar-brand {
+    font-size: 22px;
+}
+.btn {
+    min-width: 100px;
+}
+.row {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+a {
+    text-decoration: none;
+}
+label {
+    margin-bottom: 5px;
+}
+.row-footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 10px;
+    border-top: 1px solid #d9d9d9;
+}
+.alinhamento-direito {
+    text-align:right;
+    margin-bottom:20px;
+    margin-right:10px;
+}

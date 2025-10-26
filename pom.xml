@@ -1,21 +1,131 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+		https://maven.apache.org/xsd/maven-4.0.0.xsd">
+		
   <modelVersion>4.0.0</modelVersion>
-  <groupId>gerenciador-tarefas-jsp</groupId>
-  <artifactId>gerenciador-tarefas-jsp</artifactId>
+
+  <groupId>tarefas</groupId>
+  <artifactId>tarefas</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
+
+  <properties>
+    <maven.compiler.release>17</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <!-- Versões centralizadas -->
+    <jakarta.persistence.version>3.1.0</jakarta.persistence.version>
+    <jakarta.ee.version>10.0.0</jakarta.ee.version>
+    <hibernate.version>6.4.4.Final</hibernate.version>
+    <mysql.version>8.3.0</mysql.version>
+    <jstl.version>3.0.1</jstl.version>
+    <jakarta.servlet.version>6.0.0</jakarta.servlet.version>
+    <jakarta.jsp.version>3.1.1</jakarta.jsp.version>
+    <yasson.version>3.0.3</yasson.version>
+    <jakarta.json.version>2.1.3</jakarta.json.version>
+    <jbcrypt.version>0.4</jbcrypt.version>
+    <maven.compiler.plugin.version>3.13.0</maven.compiler.plugin.version>
+    <maven.war.plugin.version>3.2.3</maven.war.plugin.version>
+  </properties>
+
+  <dependencies>
+
+    <!-- API de persistência Jakarta (JPA) -->
+    <dependency>
+      <groupId>jakarta.persistence</groupId>
+      <artifactId>jakarta.persistence-api</artifactId>
+      <version>${jakarta.persistence.version}</version>
+    </dependency>
+
+    <!-- Conjunto de APIs Jakarta EE para suporte a anotações e imports no Eclipse -->
+    <dependency>
+      <groupId>jakarta.platform</groupId>
+      <artifactId>jakarta.jakartaee-api</artifactId>
+      <version>${jakarta.ee.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- Implementação JPA com Hibernate -->
+    <dependency>
+      <groupId>org.hibernate.orm</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>${hibernate.version}</version>
+    </dependency>
+
+    <!-- Driver JDBC do MySQL -->
+    <dependency>
+      <groupId>com.mysql</groupId>
+      <artifactId>mysql-connector-j</artifactId>
+      <version>${mysql.version}</version>
+    </dependency>
+
+    <!-- API JSTL para uso em páginas JSP -->
+    <dependency>
+      <groupId>jakarta.servlet.jsp.jstl</groupId>
+      <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+      <version>${jstl.version}</version>
+    </dependency>
+
+    <!-- Implementação JSTL (GlassFish) -->
+    <dependency>
+      <groupId>org.glassfish.web</groupId>
+      <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+      <version>${jstl.version}</version>
+    </dependency>
+
+    <!-- API Servlet Jakarta (fornecida pelo Tomcat) -->
+    <dependency>
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
+      <version>${jakarta.servlet.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- API JSP Jakarta (fornecida pelo Tomcat) -->
+    <dependency>
+      <groupId>jakarta.servlet.jsp</groupId>
+      <artifactId>jakarta.servlet.jsp-api</artifactId>
+      <version>${jakarta.jsp.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- Yasson: implementação da especificação Jakarta JSON-B -->
+    <dependency>
+      <groupId>org.eclipse</groupId>
+      <artifactId>yasson</artifactId>
+      <version>${yasson.version}</version>
+    </dependency>
+
+    <!-- API Jakarta JSON para manipulação de JSON -->
+    <dependency>
+      <groupId>jakarta.json</groupId>
+      <artifactId>jakarta.json-api</artifactId>
+      <version>${jakarta.json.version}</version>
+    </dependency>
+
+    <!-- Biblioteca BCrypt para hash seguro de senhas -->
+    <dependency>
+      <groupId>org.mindrot</groupId>
+      <artifactId>jbcrypt</artifactId>
+      <version>${jbcrypt.version}</version>
+    </dependency>
+  </dependencies>
   <build>
     <plugins>
+      <!-- Plugin do compilador Maven configurado para Java 17 -->
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.13.0</version>
+        <version>${maven.compiler.plugin.version}</version>
         <configuration>
           <release>17</release>
         </configuration>
       </plugin>
+
+      <!-- Plugin Maven WAR para empacotar o projeto JSP -->
       <plugin>
         <artifactId>maven-war-plugin</artifactId>
-        <version>3.2.3</version>
+        <version>${maven.war.plugin.version}</version>
       </plugin>
     </plugins>
   </build>
